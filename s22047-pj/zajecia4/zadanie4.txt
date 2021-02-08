@@ -1,0 +1,1 @@
+znaleźć jego PID w liście wygenerowanej komendą "ps" i zamknięcie go za pomocą komendy: kill <PID>

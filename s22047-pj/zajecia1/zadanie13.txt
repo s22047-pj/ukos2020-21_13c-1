@@ -1,0 +1,3 @@
+Treść: Zobacz co się stanie jak wpiszesz komendę 'cd/root', jak już to zrobisz, zastanów się co się stało. Proponuję także zapytać prowadzącego
+Odp. po wpisaniu cd /root otrzymuję komunikat "Permission denied" dzieje się tak, ponieważ do katalogu root uprawnienia ma tylko uytkownik root. 
+Mogę do katalogu się dostać, ale z przedrostkiem "sudo"

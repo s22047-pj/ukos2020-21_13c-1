@@ -1,0 +1,2 @@
+Zobacz, czy przechodząc do tego katalogu w sposób graficzny (wyklikać) otrzymasz to samo?
+Odp. Tak, po przejściu w sposób graficzny, otrzymuję to samo.

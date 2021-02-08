@@ -1,0 +1,2 @@
+Treść: Przejdź do katalogu Obrzy w twoim katalogu domowym za pomocą ścieżki względnej
+Odp. cd ../Pictures/

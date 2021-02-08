@@ -1,0 +1,2 @@
+Treść: Przejdź do katalogu Pulpit za pomocą ścieżki względnej
+Odp. cd ../../../Desktop/

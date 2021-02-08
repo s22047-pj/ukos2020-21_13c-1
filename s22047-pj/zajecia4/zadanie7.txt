@@ -1,0 +1,1 @@
+ls > lista_plikow.txt

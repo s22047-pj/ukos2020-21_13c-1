@@ -1,0 +1,1 @@
+- poznanie   komendy "usmak" pozwalającej na zmiany uprawnień do plików/katalogów (stanardowy "umask" - 022)

@@ -1,0 +1,3 @@
+Podczas pisania treści do pliku, słowa kluczowe, takie jak "#include" czy "for" 
+podświetlały się na żółty/fioletowy kolor
+

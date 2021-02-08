@@ -1,0 +1,2 @@
+Treść: Sprawdź gzie aktualnie się znajdujesz. Porównaj to z tym co możesz zobaczyć w interfejsie graficznym.
+Odp: pwd

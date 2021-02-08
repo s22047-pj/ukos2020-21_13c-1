@@ -1,0 +1,2 @@
+Treść: Przejdź do swojego katalogu domowego za pomocą ścieżki bezwzględnej
+Odp. cd /home/
