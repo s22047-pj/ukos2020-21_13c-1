@@ -1,0 +1,97 @@
+1) Get-Help Get-ExecutionPolicy - pobrało mi wszystkie pakiety do pomocy
+
+2) Get-Module -ListAvailable - pokazuje listę modułów: wersję,imię, komendy z modułu
+
+3) Get-Module -ListAvailable | ? {$_.Version -ge "2.0.0.0"} - wyświetla
+wszystkie moduły z wersją 2.0.0.0 i większe + info o nich
+
+4) Get-Module -ListAvailable | ? {$_.Version -ge "2.0.0.0"} | % {Get-Command -Module $_.Name}
+- wyświetliło wszystkie polecenia, jaki to typ komendy(np.funkcja), nazwy komendy, z jakiej wersji 
+oraz źródło komendy.
+
+5) Get-Module -ListAvailable | ? {$_.Version -ge "2.0.0.0"} | % {Get-Command -Module $_.Name} | ? {($_.Name -like "Add-*") -or ($_.Name -like "Get-*")}
+- wyświetli polecenia od wersji 2.0.0.0 zaczynające się od Add- lub Get-
+
+6) Get-Module -ListAvailable | ? {$_.Version -ge "2.0.0.0"} | % {Get-Command -Module $_.Name} | ? {($_.Name -like "Add-*") -or ($_.Name -like "Get-*")} | Out-GridView
+- to samo tylko otwiera się nowe okno graficzne powershella
+
+7) $nazwaPliku = "mojaNazwaPliku.txt"
+cd $env:TEMP
+echo $nazwaPliku
+Get-Module -ListAvailable | ? {$_.Version -ge "2.0.0.0"} | % {Get-Command -Module $_.Name} | ? {($_.Name -like "Add-*") -or ($_.Name -like "Get-*")} | Out-File $env:TEMP\$nazwaPliku
+- zapisuje wynik do pliku
+Get-Content $env:TEMP\mojaNazwaPliku.txt - wyświetla zawartość pliku
+
+8) Get-Module -ListAvailable | ? {$_.Version -ge "2.0.0.0"} | % {Get-Command -Module $_.Name} | ? {($_.Name -like "Add-*") -or ($_.Name -like "Get-*")} | Out-Null
+- robi się, ale nie zapisuje
+
+9) Import-Module BitsTransfer
+Get-Command -Module BitsTransfer - wypisuje wszystkie szczegóły komend z modułu
+BitsTransfer
+$cred = Get-Credential - logowanie do portalu
+Start-BitsTransfer -Source http://szuflandia.pjwstk.edu.pl/pub/repo/java/lubuntu_13_04_v02.zip -Destination D:\ -Credential $cred -Authentication Negotiate
+- zaczyna pobierać plik
+Get-BitsTransfer - wyświetla stan transferu
+Complete-BitsTransfer -BitsJob $job - ukończenie transferu
+
+10) Measure-Command {Get-ChildItem -Path C:\Windows} - wyświetla dni, godziny,
+minuty, sekundy itp.
+
+11) Get-Alias | ? {$_.Definition -like "Get-ChildItem"} - wyświetla nazwy dir,gci,ls
+ls C:\ | %{Sleep -Milliseconds 250; return $_} | Format-Table - wylistowanie
+z odstępem czasowym
+
+12) & C:\Windows\notepad.exe - wywołanie programu notepad / uruchamia się
+
+13) Get-PSDrive - pokazuje dostępne dyski
+cd hklm:\ - wchodzę do rejestru
+cd .\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall - wchodzę do katalogu uninstall
+ls - lista zawartości tego katalogu
+ls | %{
+   Get-ItemProperty $_.pspath | Select-Object DisplayName, InstallDate, UninstallString
+} | Format-Table -AutoSize - wyświetla mniejszą listę, bardziej ułożoną
+cd HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+ls | %{
+    Get-ItemProperty $_.pspath | Select-Object DisplayName, InstallDate, UninstallString
+} | %{& $_.UninstallString} - odinstalowywanie
+
+14) WMI:
+Get-WmiObject -Class Win32_Product | Format-Table -AutoSize -nieuporządkowane
+Get-WmiObject -Class Win32_Product | Select-Object Name, Vendor | Format-Table -AutoSizeGet-WmiObject -Class Win32_Product | Select-Object Name, Vendor | Format-Table -AutoSize
+- nie wyświetla już numeru identyfikacyjnego, który zajmował dużo miejsca
+Get-WmiObject -Class Win32_Product | ?{$_.Vendor.toLower() -like "*microsoft*"} | Select-Object Name, Vendor | Format-Table -AutoSize
+- znajdowanie wszystkich pakietów do microsoftu
+Można je też odinstalować
+
+15) Dyski w PS:
+Get-PSDrive - wylistowanie dysków
+
+16) Modyfikacje dysków w PS:
+[void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms") - załadowanie biblioteki
+$icoPath = Get-Process -id $pid | Select-Object -ExpandProperty Path
+//wpisałam linijki charakteryzujące obiekt// +  w funkcji+ wywołanie
+pokazało mi pop-up z nazwą caterror
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
