@@ -1,0 +1,3 @@
+chmod ala 777
+chmod ala 004
+chmod ala 700

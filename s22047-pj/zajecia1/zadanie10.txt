@@ -1,0 +1,3 @@
+Treść: Sprawdź gdzie jesteś
+Odp. pwd
+Wynik. /home/ubuntu/Pictures

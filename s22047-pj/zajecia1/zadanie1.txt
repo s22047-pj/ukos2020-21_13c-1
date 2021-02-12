@@ -1,0 +1,4 @@
+Treść: 1. Uruchom terminal.
+użycie skrótu klawiszowego: ctrl+alt+t
+wywołanie terminalu z menu: menu -> System Tools -> LXTerminal
+

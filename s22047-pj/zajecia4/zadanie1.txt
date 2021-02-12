@@ -1,0 +1,2 @@
+ścieżka relatywna: cd ../../
+ścieżka bezwzględna: cd /tmp/ukos/ala/

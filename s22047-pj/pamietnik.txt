@@ -1,4 +1,5 @@
 03.11.2020
+Zajęcia1
 Temat: Linux - wstęp do konsoli
 Nauczyłem się:
 - przechodzenia między katalogami
@@ -12,7 +13,8 @@ _________________________________________________________
 _________________________________________________________
 
 13.11.2020
-Temat: 
+Zajęcia2
+Temat: Prawa dostępu
 Nauczyłem się:
 - nadawać i odbierać uprawnienia użytkownikom przy pomocy
 u - user
@@ -46,11 +48,12 @@ u- - zabierz uprawnienie
 
 - pisanie i wyświetlanie strony HTML  w przeglądarce
 
-- poznanie   komendy "usmak" pozwalającej na zmiany uprawnień do plików/katalogów (stanardowy "umask" - 022)
+
 
 _________________________________________________________
 _________________________________________________________
 27.11.2020
+Zajęcia3
 Temat: Procesy i strumienie
 
 poznane/użyte komendy i do czego służą:
@@ -85,27 +88,39 @@ aux -
 ps aux | grep "ubuntu" - filtrowanie wyników z wyświetleniem tych któ©e mają słowo "ubuntu"
 ps aux | grep "bash"
 ps aux | grep "root"
-/
 ps -U root -u root
 ps -U bash -u bash
+_________________________________________________________
+_________________________________________________________
+Zajęcia4
+Temat: Kolokwium Linux - powtórzenie
 
-2___________________________
-Tutaj, do puki edtor tesktowy nie jest zapisany niegdzie na dysku (odtwaorzony poraz pierwszy) nie wiem jak znaleźć ten proces. Inna sytuacja ma się w przypadku zapisanego raz pliku txt. W takim przypadku korzystam z komendy 
-ps x | grep "nazwa_pliku" -type -f
+Na dzisiejszych zajęciach nauczyłem się: 
+1. jak tworzyć drzewka katalogów za pomocą jednej komnedy
+2. jak używać ścieżki relatywnej i bezpośredniej do np. przenoszenia katalogów
+3. zamykania katalogów bez użycia Ctrl+C
+_________________________________________________________
+_________________________________________________________
+Zajęcia5
+Temat: Kolokwium
 
-kill PID_number
-3___________________________
-a)
-po wykonaniu operacji z zakończeniem ich - Ctrl + C plik pozostaje taki jak przed próbą dokonania zmian
+Na dzisiejszych zajęciach nauczyłem się: 
+1. Że istnieja różne edytory plików
+2. w zależności od rozszerzenia pliku edytory pozwalają na podświetlanie skłądni kodu
+_________________________________________________________
+_________________________________________________________
+Zajęcia6
+Temat: brak (będzie na zajęciach7)
+_________________________________________________________
+_________________________________________________________
+Zajęcia7
+Temat: Wprowadzenie do PowerShell
 
-b)
-po wykonaniu operacji z zakończeniem ich - Ctrl + D do pliku zostaje zapisana próba dokonania zaminy
-4___________________________
-Ctrl+Z - przeniesienie procesu do działania w tle
-bg - przywrócenie procesu do "pełnego" działania
-fg - nadanie priorytetu zadaniu (dostępne komendy takie jak C^Z)
-nazwa_pliku & - odtworzenie procesu w tle
-jobs - podgląd procesów działających w tle
-
-
-
+Na dzisiejszych zajęciach nauczyłem się: 
+1. Że istnieje kilka możliwości włączenia PowerShell
+2. W PowerShell istnieją różne komendy pozwalające na pracę z plikami/katalogami
+3. W PowerShell można pisać funkcje
+_________________________________________________________
+_________________________________________________________
+Zajęcia8
+Temat: 

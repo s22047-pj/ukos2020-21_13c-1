@@ -1,0 +1,2 @@
+Treść: 2. Wyświetl zawartość aktualnego katalogu.
+Odp. ls

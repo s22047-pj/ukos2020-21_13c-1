@@ -1,0 +1,2 @@
+1. ktoś zmienił prawa dostępu do pliku
+2. ja zmieniłęm sobie prawa dostępu do pliku

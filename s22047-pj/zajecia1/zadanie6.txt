@@ -1,0 +1,3 @@
+Treść. Wyświetl zawartość bieżącego katalogu
+Odp. ls
+Wynik: adding-packages-permanently-info.txt  passwords-info.txt

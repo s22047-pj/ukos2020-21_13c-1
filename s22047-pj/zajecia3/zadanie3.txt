@@ -1,5 +1,7 @@
-a)
-po wykonaniu operacji z zakończeniem ich - Ctrl + C plik pozostaje taki jak przed próbą dokonania zmian
+po uruchomieniu komedy "cat" i wciśnięciu kombinacji klawiszy "Ctrl + C" proces wywołany przez "cat"
+zostaje przerwany
 
-b)
-po wykonaniu operacji z zakończeniem ich - Ctrl + D do pliku zostaje zapisana próba dokonania zaminy
+Po utworzeniu pliku "wynik1.txt", użyciu polecenia  "cat" wpisaniu słowa "witaj"
+kombinacja:
+"Ctrl + C" zamyka proces rozpoczęty poleceniem "cat" a plik "wynik1.txt" pozstoje pusty
+"Ctrl + D" zamyka proces rozpoczęty poleceniem "cat" a do pliku "wynik1.txt" zostaje zapisane słowo witaj

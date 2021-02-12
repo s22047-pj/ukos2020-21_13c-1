@@ -1,0 +1,2 @@
+Treść: Wyświetl zawartość swojego katalogu domowego bez przechodzenia do niego (ls z odpowiednim parametrem)
+Odp. ls ~/

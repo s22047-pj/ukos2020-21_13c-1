@@ -1,0 +1,6 @@
+Po wykonaniu komendy "ls -l" zostało wypisanych  10 katalogów i 1 plik
+
+Po wykonaniu komendy "ls -a | grep D zostały wypisane wszystkie foldery/pliki spełniające warunki "grep"
+
+Po wykonaniu komendy "ls -a | grep D > ListaPlikowZLiterkaD.txt"  Do pliku List... zastały zapisane wszystkie 
+foldery/pliki spełniające warunki "grep"
