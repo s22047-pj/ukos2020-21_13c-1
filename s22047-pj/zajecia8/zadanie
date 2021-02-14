@@ -1,0 +1,120 @@
+1. Chciałem zobaczyć dostępne flagi dla komendy Get-Help
+Get-Help Get-ExecutionPolicy
+
+2. Do otrzymania przykładów użycia Get-Help, wpisałem:
+Get-Help Get-ExecutionPolicy -Examples
+
+3. Aby otzrymać listę dostępnych modułów, z któych mogę korzystać, wpsiałem:
+Get-Module -ListAvailable
+
+4. Potrzebowałem wyświetlić wszystkie moduły, któych wersja była >= 3.0:
+Get-Module -ListAvailable | ? {$_.Version -ge "3.0.0.0"}
+
+5. Z wyświetlonych modułów chciałem wyświtlić dostępne komendy:
+Get-Module -ListAvailable | ? {$_.Version -ge "3.0.0.0"} | % {Get-Command -Module $_.Name}
+
+6. Z wyświtlonych powyżej komend, chaiłęm uzyskać tylko te, których nazwy zaczynały się od Add lub Get
+Get-Module -ListAvailable | ? {$_.Version -ge "3.0.0.0"} | % {Get-Command -Module $_.Name} | ? {($_.Name -like "Add-*") -or ($_.Name -like "Get-*")}
+
+7. Dla zwiększenia czytelności, wyświetliłem je jako tabelka
+Get-Module -ListAvailable | ? {$_.Version -ge "3.0.0.0"} | % {Get-Command -Module $_.Name} | ? {($_.Name -like "Add-*") -or ($_.Name -like "Get-*")} | Out-GridView
+
+8. Aby zapisać dane informacje, tabelke przeniosłęm do pliku
+Get-Module -ListAvailable | ? {$_.Version -ge "3.0.0.0"} | % {Get-Command -Module $_.Name} | ? {($_.Name -like "Add-*") -or ($_.Name -like "Get-*")} | Out-File $env:TEMP\$nazwaPliku
+
+9. Do wyświetlenia wszsytkich komend w poniższym module, użyłem:
+Get-Command -Module BitsTransfer
+
+10. Powyższy moduł użyłem do operacji na ściąganiu obrazu z internetu, cały proces trwał długo, więc użyłem:
+Measure-Command {Get-ChildItem -Path C:\Windows}
+
+11. Ponieważ listowanie katalogu jest trochę nie wygodne, postanowiłem skorzystać z aliasu:
+Get-Alias | ? {$_.Definition -like "Get-ChildItem"}
+
+12. Aby skorzystać z nabytej wiedzy postanopwiłem wylistować pliki z katalogu głównego
+ls C:\ | %{Sleep -Milliseconds 250; return $_} | Format-Table
+
+13. W ramach lekcji, postanowiłęm zapisać jakieś zmiany do notatnika, otwierając go z poziomu PS:
+& C:\Windows\notepad.exe
+
+14. Zawsze byłem ciekaw jak podejrzeć dyski w komputertze, z poziomu konsoli:
+Get-PSDrive
+
+15. Zastanawiałem się jak PS widzi rejestr na Windows, więc użyłem komendy:
+cd hklm:\
+
+16. Potrzebowałem sprawdzić zainstalowane aplikacje, więc użyłem:
+cd HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+ls | %{
+    Get-ItemProperty $_.pspath | Select-Object DisplayName, InstallDate, UninstallString
+} | Format-Table -AutoSize
+
+17. Chciałem wyświetlić możliwości jakie daje poniższy moduł do zarządzania systemem
+Get-WmiObject -Class Win32_Product | Format-Table -AutoSize
+
+18. Ponieważ output jaki dostałem jaest zaśmiecony znakami na samym początku, postanowiłem je usunąć
+Get-WmiObject -Class Win32_Product | Select-Object Name, Vendor | Format-Table -AutoSize
+
+19. Intersowało mnie jak wyświetlić pakiety microsoft, więc użyłem:
+Get-WmiObject -Class Win32_Product | ?{$_.Vendor.toLower() -like "*microsoft*"} | Select-Object Name, Vendor | Format-Table -AutoSize
+
+20. Wyświetlone pakiety można odinstalować czego nie uczyniłem:
+#Get-WmiObject -Class Win32_Product | ?{$_.Vendor.toLower() -like "*microsoft*"} | %{
+# $wmiProduct = $_
+#    $answer = Read-Host "Uninstall '$($wmiProduct.Name)' [y/n]"
+#    $answer = $answer.ToLower()
+#    switch($answer) {
+#        "y" {
+#            Write-Host -NoNewline -ForegroundColor Red "Removing: "
+#            Write-Host -ForegroundColor White "$($wmiProduct.Name)"
+#            # odkomentowanie poniższej lini spowoduje błąd braku uprawnień dla Twojego konta
+#            #$wmiProduct.Uninstall() # ta linia uruchamia deinstalację. Odkomentuj jeśli chcesz odinstalować wszystkie pakiety od Microsoftu. (nie polecam)
+#        }
+#        "n" {Write-Host "Ok. Skipping."}
+#        default {Write-Host -ForegroundColor Red "Unexpected value. Skipping uninstalling it."}
+#    }
+#}
+
+21. Postanowiłem zobaczyć sobie "extention" do PS i jakie możliwości daje:
+#[void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
+#
+#$icoPath = Get-Process -id $pid | Select-Object -ExpandProperty Path
+#
+#$myNotification = New-Object System.Windows.Forms.NotifyIcon
+#$myNotification.Icon = [System.Drawing.Icon]::ExtractAssociatedIcon($icoPath)
+#$myNotification.BalloonTipIcon = 'Error'
+#$myNotification.BalloonTipText = "Your cat has meowed!"
+#$myNotification.BalloonTipTitle = "Cat Error"
+#$myNotification.Visible = $True
+#$myNotification.ShowBalloonTip(10000)
+
+
+22. Aby usproawnić powyższy proces, napisałem:
+function GiveMePopup {
+    param(
+        [Parameter(Mandatory=$true)]
+        $Text,
+   
+        [Parameter(Mandatory=$true)]
+        $Title,
+   
+        [ValidateSet('None', 'Info', 'Warning', 'Error')]
+        $Icon = 'Info',
+
+        $Timeout = 10000
+    )
+    [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
+    $icoPath = Get-Process -id $pid | Select-Object -ExpandProperty Path
+    $myNotification = New-Object System.Windows.Forms.NotifyIcon
+    $myNotification.Icon = [System.Drawing.Icon]::ExtractAssociatedIcon($icoPath)
+    $myNotification.BalloonTipIcon = $Icon
+    $myNotification.BalloonTipText = $Text
+    $myNotification.BalloonTipTitle = $Title
+    $myNotification.Visible = $True
+    $myNotification.ShowBalloonTip(1000)
+}
+
+For($i = 1; $i -le 10; $i++) {
+    GiveMePopup -Text "WTF-second passed!" -Title "WTF Notification" -Icon Info
+}
+

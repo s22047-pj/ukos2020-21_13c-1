@@ -110,7 +110,7 @@ Na dzisiejszych zajęciach nauczyłem się:
 _________________________________________________________
 _________________________________________________________
 Zajęcia6
-Temat: brak (będzie na zajęciach7)
+Temat: na dzisiejszych zajęciach zapoznałęm się z możliwościami komend na PowerShell
 _________________________________________________________
 _________________________________________________________
 Zajęcia7
@@ -124,3 +124,4 @@ _________________________________________________________
 _________________________________________________________
 Zajęcia8
 Temat: 
+Na dzisiejszych zajęciach pisałem komendy do Power Shlell, zpisane w folderze "zajecia9"
